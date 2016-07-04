@@ -1,7 +1,6 @@
 class Item < ActiveRecord::Base
-  validates_presence_of :name, :room_id
+  validates_presence_of :name
 
   belongs_to :room
-  belongs_to :user, through: :room
 
 end
