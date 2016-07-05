@@ -89,7 +89,6 @@ describe RoomsController do
     it 'saves and creates room and redirects to show page' do
       fill_in('name', with: 'Bedroom')
       fill_in('notes', with: 'upstairs')
-      binding.pry
       click_on('Create Room')
       expect(current_path).to include('/rooms')
       expect(page.text).to include("Bedroom")
@@ -97,11 +96,20 @@ describe RoomsController do
   end
 
   describe "edit" do
-    it 'shows form with room details filled in'
-    it 'edits room and redirects to show page'
-    it 'has option to delete room'
-    it 'displays message of succssful edit'
-    it 'only displays if user logged in'
+    before do
+      visit '/rooms/living-room/edit'
+    end
+    it 'shows form with room details filled in' do
+      expect(page).to have_content(:form)
+      expect(find_field('name').value).to eq("Living Room")
+    end
+    it 'edits room and redirects to show page' do
+      fill_in('name', with: "Living Area")
+      click_on('Edit Room')
+
+      expect(current_path).to include('/rooms/living-room')
+      expect(page.text).to include("Living Area")
+    end
   end
 
   describe "delete" do
@@ -126,7 +134,10 @@ describe RoomsController do
       visit '/rooms/new'
       expect(current_path).to include('/')
     end
-    it 'edit page does not load'
+    it 'edit page does not load' do
+      visit '/rooms/living-room/edit'
+      expect(current_path).to include('/')
+    end
     it 'delete page does not load'
   end
 end

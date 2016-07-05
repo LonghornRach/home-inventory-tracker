@@ -32,11 +32,19 @@ class RoomsController < ApplicationController
   end
 
   get '/rooms/:slug/edit' do
+    @room = Room.find_by_slug(params[:slug])
+    @owner = User.find_by_id(@room.user_id)
+    authorize!(@owner)
     erb :'/rooms/edit'
   end
 
   patch '/rooms/:slug' do
-
+    @room = Room.find_by_slug(params[:slug])
+    @owner = User.find_by_id(@room.user_id)
+    authorize!(@owner)
+    @room.update(params)
+    #flash - update successful
+    redirect "/rooms/#{@room.slug}"
   end
 
   delete '/rooms/:slug/delete' do
