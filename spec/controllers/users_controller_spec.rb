@@ -61,4 +61,34 @@ describe UsersController do
     end
   end
 
+  describe "home page" do
+    it 'loads if logged in' do
+      @user = User.create(new_params)
+      post '/login', login_params
+      get '/users/test-user'
+      expect(last_response.status).to eq(200)
+    end
+    it 'redirects to index if not logged in' do
+      visit '/users/test-user'
+      expect(page.text).to include("Welcome to the Home Inventory Tracker!")
+    end
+  end
+
+  describe "logout" do
+    before do
+      @user = User.create(new_params)
+      post '/login', login_params
+    end
+    it 'redirects to index' do
+      get '/logout'
+      expect(last_response.location).to include('/')
+    end
+    it 'logs out user' do
+      get '/logout'
+      get '/users/test-user' do
+        expect(last_response.location).to include('/')
+      end
+    end
+  end
+
 end
