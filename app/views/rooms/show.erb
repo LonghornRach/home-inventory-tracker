@@ -1,1 +1,15 @@
 <h1><%= @room.name %></h1>
+<br>
+<h2>Notes:</h2>
+<p><%= @room.notes %></p>
+<br><br>
+<h2>Items:</h2>
+<ul>
+    <% @room.items.all.each do |item| %>
+        <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+   <%  end %>
+</ul>
+<br><br>
+<h3><a href="/rooms/<%= @room.slug %>/edit">Edit Room Details</a></h3>
+<br>
+<h3><a href="/items/new">Add New Item</a></h3>

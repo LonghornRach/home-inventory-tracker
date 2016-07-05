@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   get '/rooms' do
     @user = current_user
     authorize!(@user)
+    @rooms = @user.rooms.all
     erb :'/rooms/index'
   end
 
@@ -16,6 +17,8 @@ class RoomsController < ApplicationController
 
   get '/rooms/:slug' do
     @room = Room.find_by_slug(params[:slug])
+    @owner = User.find_by_id(@room.user_id)
+    authorize!(@owner)
     erb :'/rooms/show'
   end
 

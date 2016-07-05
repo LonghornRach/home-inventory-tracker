@@ -20,7 +20,7 @@ describe RoomsController do
   before do
     @user = User.create(user_params)
 
-    @room1 = Room.create(name: "Living Room")
+    @room1 = Room.create(name: "Living Room", notes: "has gas fireplace")
     @room2 = Room.create(name: "Kitchen")
 
     @item1 = Item.create(name: "table")
@@ -34,17 +34,13 @@ describe RoomsController do
     @room1.items << @item3
     @room2.items << @item1
 
-    # post '/login', login_params
+    visit '/login'
+    fill_in('name', with: "Test User")
+    fill_in('password', with: "user_pass")
+    click_on('submit')
   end
 
   describe "index" do
-    before do
-      visit '/login'
-      fill_in('name', with: "Test User")
-      fill_in('password', with: "user_pass")
-      click_on('submit')
-    end
-
     it 'displays all rooms' do
       visit '/rooms'
       expect(page.text).to include("Living Room")
@@ -64,11 +60,23 @@ describe RoomsController do
   end
 
   describe "show" do
-    it 'displays room details'
-    it 'lists rooms items as links'
-    it 'has option to edit room'
-    it 'has link to add item'
-    it 'only displays if user logged in'
+    before do
+      visit '/rooms'
+      click_on('Living Room')
+    end
+    it 'displays room details' do
+      expect(page.text).to include ("has gas fireplace")
+    end
+    it 'lists rooms items as links' do
+      click_on('couch')
+      expect(current_path).to include("/items/")
+    end
+    it 'has option to edit room' do
+      expect(page.text).to include("Edit Room Details")
+    end
+    it 'has link to add item' do
+      expect(page.text).to include("Add New Item")
+    end
   end
 
   describe "create" do
@@ -100,7 +108,10 @@ describe RoomsController do
       visit '/rooms'
       expect(current_path).to include('/')
     end
-    it 'show page does not load'
+    it 'show page does not load' do
+      visit '/rooms/living-room'
+      expect(current_path).to include('/')
+    end
     it 'create page does not load'
     it 'edit page does not load'
     it 'delete page does not load'
