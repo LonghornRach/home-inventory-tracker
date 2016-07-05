@@ -113,8 +113,16 @@ describe RoomsController do
   end
 
   describe "delete" do
-    it 'deletes room and displays confirmation message'
-    it 'redirects to room index'
+    before do
+      visit '/rooms/living-room/edit'
+      click_on('Delete Room')
+    end
+    it 'deletes room and displays confirmation message' do
+      expect(Room.all.count).to eq(1)
+    end
+    it 'redirects to room index' do
+      expect(current_path).to include('/rooms')
+    end
   end
 
   context "logged out" do
@@ -138,6 +146,9 @@ describe RoomsController do
       visit '/rooms/living-room/edit'
       expect(current_path).to include('/')
     end
-    it 'delete page does not load'
+    it 'delete page does not load' do
+      visit '/rooms/living-room/edit'
+      expect(current_path).to include('/')
+    end
   end
 end

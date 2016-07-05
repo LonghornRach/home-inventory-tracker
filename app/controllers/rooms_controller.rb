@@ -48,7 +48,13 @@ class RoomsController < ApplicationController
   end
 
   delete '/rooms/:slug/delete' do
-
+    @room = Room.find_by_slug(params[:slug])
+    @owner = User.find_by_id(@room.user_id)
+    authorize!(@owner)
+    @room.items.delete_all
+    @room.delete
+    # flash - delete successful
+    redirect '/rooms'
   end
 
 end
