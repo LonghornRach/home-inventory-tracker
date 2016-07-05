@@ -8,11 +8,20 @@ class RoomsController < ApplicationController
   end
 
   get '/rooms/new' do
+    @user = current_user
+    authorize!(@user)
     erb :'/rooms/new'
   end
 
   post '/rooms' do
-
+    @room = Room.new(params)
+    if @room.save
+      current_user.rooms << @room
+      redirect '/rooms'
+    else
+      redirect '/rooms/new'
+      # flash - invalid entry
+    end
   end
 
   get '/rooms/:slug' do

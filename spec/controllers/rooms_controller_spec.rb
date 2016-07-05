@@ -80,10 +80,19 @@ describe RoomsController do
   end
 
   describe "create" do
-    it 'shows form to create new room'
-    it 'saves and create room and redirects to show page'
-    it 'has link to save and redirect to create new item'
-    it 'only displays if user logged in'
+    before do
+      visit '/rooms/new'
+    end
+    it 'shows form to create new room' do
+      expect(page).to have_content(:form)
+    end
+    it 'saves and creates room and redirects to show page' do
+      fill_in('name', with: 'Bedroom')
+      fill_in('notes', with: 'upstairs')
+      click_on('submit')
+      expect(current_path).to include('/rooms')
+      expect(page.text).to include("Bedroom")
+    end
   end
 
   describe "edit" do
@@ -112,7 +121,10 @@ describe RoomsController do
       visit '/rooms/living-room'
       expect(current_path).to include('/')
     end
-    it 'create page does not load'
+    it 'create page does not load' do
+      visit '/rooms/new'
+      expect(current_path).to include('/')
+    end
     it 'edit page does not load'
     it 'delete page does not load'
   end
