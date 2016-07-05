@@ -34,30 +34,31 @@ describe UsersController do
       session = {}
       session[:id] = @user.id
       get '/signup'
-      # binding.pry
       expect(last_response.location).to include('/users/test-user')
     end
   end
 
-  # describe "login page" do
-  #   it 'has form for user to log in' do
-  #     visit '/login'
-  #     expect(page).to have_content(:form)
-  #   end
-  #   it 'logs in the user upon submission of form' do
-  #     @user = User.create(new_params)
-
-  #     visit '/login'
-  #     # binding.pry
-  #     fill_in('name', with: @user.name)
-  #     fill_in('password', with: @user.password)
-  #     click_on('submit')
-  #     # click_on(:input[type="submit"])
-
-  #     binding.pry
-  #   end
-  #   it 'redirects to users home page after login'
-  #   it 'does not load for already logged in user'
-  # end
+  describe "login page" do
+    it 'has form for user to log in' do
+      visit '/login'
+      expect(page).to have_content(:form)
+    end
+    it 'logs in the user upon submission of form' do
+      @user = User.create(new_params)
+      post '/login', login_params
+      expect(session[:id]).to eq(@user.id)
+    end
+    it 'redirects to users home page after login' do
+      @user = User.create(new_params)
+      post '/login', login_params
+      expect(last_response.location).to include('/users/test-user')
+    end
+    it 'does not load for already logged in user' do
+      @user = User.create(new_params)
+      post '/login', login_params
+      get '/login'
+      expect(last_response.location).to include('/users/test-user')
+    end
+  end
 
 end

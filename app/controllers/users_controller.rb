@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   post '/signup' do
     @user = User.new(params)
     if @user.save
-      session[:id] = @user.id
-      # login!(@user)
+      login!(@user)
       redirect_home(@user)
     else
       redirect '/signup'
@@ -20,15 +19,20 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    erb :login
+    if logged_in?
+      redirect_home(current_user)
+    else
+      erb :login
+    end
   end
 
   post '/login' do
     user = User.find_by(:name => params[:name])
     if user && user.authenticate(params[:password])
       login!(user)
+      redirect_home(user)
     else
-
+      redirect '/login'
     end
   end
 
