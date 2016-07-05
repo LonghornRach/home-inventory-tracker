@@ -89,7 +89,8 @@ describe RoomsController do
     it 'saves and creates room and redirects to show page' do
       fill_in('name', with: 'Bedroom')
       fill_in('notes', with: 'upstairs')
-      click_on('submit')
+      binding.pry
+      click_on('Create Room')
       expect(current_path).to include('/rooms')
       expect(page.text).to include("Bedroom")
     end
