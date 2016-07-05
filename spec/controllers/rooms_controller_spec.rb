@@ -11,10 +11,6 @@ login_params = {
   :password => "user_pass"
 }
 
-room_params = {
-  :name => "Test Room"
-}
-
 describe RoomsController do
 
   before do

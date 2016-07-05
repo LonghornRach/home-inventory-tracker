@@ -1,0 +1,12 @@
+<h1>Edit Item</h1>
+<form action="/items/<%= @item.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="<%= @item.name %>">
+    <label for="notes">Notes</label>
+    <input type="text" name="notes" value="<%= @item.notes %>">
+    <label for="room">Room</label>
+    <% @owner.rooms.each do |room| %>
+        <input type="radio" name="<%= room.name %>" id="<%= room.id %>"<%= 'checked' if @item.room.id == room.id %>>"<%= room.name %>"</input>
+    <% end %>
+</form>

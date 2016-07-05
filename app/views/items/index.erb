@@ -1,0 +1,13 @@
+<h1>All Items</h1>
+<ul>
+    <% @rooms.each do |room| %>
+        <li><a href="/rooms/<%= room.slug %>"><%= room.name %></a></li>
+        <ul>
+            <% room.items.each do |item| %>
+                <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+            <% end %>
+        </ul>
+    <% end %>
+</ul>
+<br><br>
+<h2><a href="items/new">Create New Item</a></h2>
