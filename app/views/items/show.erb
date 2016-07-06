@@ -2,7 +2,14 @@
 <br>
 <h2>Notes:</h2>
 <p><%= @item.notes %></p>
+<br>
+<h2>Location: <%= @item.room.name %></h2>
 <br><br>
 <h3><a href="/items/<%= @item.id %>/edit">Edit Item Details</a></h3>
 <br>
-<h3><a href="/items/delete">Delete Item</a></h3>
+<!-- <h3><a href="/items/<%= @item.id %>/move">Edit Item Location</a></h3>
+<br> -->
+<form action="/items/<%= @item.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Item">
+</form>

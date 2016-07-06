@@ -6,7 +6,7 @@
     <input type="text" name="notes">
     <label for="room">Room</label>
     <% @user.rooms.each do |room| %>
-        <input type="radio" name="<%= room.name %>">"<%= room.name %>"</input>
+        <input type="radio" name="room" id="<%= room.name  %>" value="<%= room.slug %>"><%= room.name %></input>
     <% end %>
     <input type="submit" value="Create Item">
 </form>

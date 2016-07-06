@@ -55,9 +55,6 @@ describe ItemsController do
     it 'has option to edit item' do
       expect(page.text).to include("Edit Item Details")
     end
-    it 'has link to delete item' do
-      expect(page.text).to include("Delete Item")
-    end
   end
 
   describe "create" do
@@ -69,7 +66,9 @@ describe ItemsController do
     end
     it 'saves and creates item and redirects to show page' do
       fill_in('name', with: 'chair')
+      # binding.pry
       choose('Living Room')
+      # binding.pry
       click_on('Create Item')
       expect(current_path).to include('/items')
       expect(page.text).to include("chair")
@@ -78,59 +77,63 @@ describe ItemsController do
 
   describe "edit" do
     before do
-      visit '/items/table/edit'
+      visit '/items'
+      click_on('table')
+      click_on('Edit Item Details')
     end
     it 'shows form with item details filled in' do
       expect(page).to have_content(:form)
-      binding.pry
+      # binding.pry
       expect(find_field('name').value).to eq("table")
-      expect(find_field('Kitchen')).to be_checked
     end
-    it 'edits item and redirects to show page' do
+    it 'edits item details' do
       fill_in('name', with: "dining table")
-      click_on('Edit Room')
-
+      click_on('Edit Item')
       expect(page.text).to include("dining table")
+    end
+    it 'edits item location' do
+      # binding.pry
+      choose('Living Room')
+      click_on('Edit Item')
+      # binding.pry
+      expect(page.text).to include("Location: Living Room")
     end
   end
 
-  # describe "delete" do
-  #   before do
-  #     visit '/rooms/living-room/edit'
-  #     click_on('Delete Room')
-  #   end
-  #   it 'deletes item' do
-  #     expect(Room.all.count).to eq(1)
-  #   end
-  #   it 'redirects to item index' do
-  #     expect(current_path).to include('/rooms')
-  #   end
-  # end
+  describe "delete" do
+    before do
+      visit '/items'
+      click_on('table')
+      click_on('Delete Item')
+    end
+    it 'deletes item' do
+      expect(Item.all.count).to eq(2)
+    end
+    it 'redirects to item index' do
+      expect(current_path).to include('/items')
+    end
+  end
 
-  # context "logged out" do
-  #   before do
-  #     visit '/logout'
-  #   end
+  context "logged out" do
+    before do
+      visit '/logout'
+    end
 
-  #   it 'index page does not load' do
-  #     visit '/rooms'
-  #     expect(current_path).to include('/')
-  #   end
-  #   it 'show page does not load' do
-  #     visit '/rooms/living-room'
-  #     expect(current_path).to include('/')
-  #   end
-  #   it 'create page does not load' do
-  #     visit '/rooms/new'
-  #     expect(current_path).to include('/')
-  #   end
-  #   it 'edit page does not load' do
-  #     visit '/rooms/living-room/edit'
-  #     expect(current_path).to include('/')
-  #   end
-  #   it 'delete page does not load' do
-  #     visit '/rooms/living-room/edit'
-  #     expect(current_path).to include('/')
-  #   end
-  # end
+    it 'index page does not load' do
+      visit '/items'
+      expect(current_path).to include('/')
+    end
+    it 'show page does not load' do
+      visit "/items/#{@item2.id}"
+      expect(current_path).to include('/')
+    end
+    it 'create page does not load' do
+      visit '/items/new'
+      expect(current_path).to include('/')
+    end
+    it 'edit page does not load' do
+      visit "/items/#{@item2.id}/edit"
+      expect(current_path).to include('/')
+    end
+  end
 end

@@ -14,7 +14,8 @@ class ItemsController < ApplicationController
   end
 
   post '/items' do
-    @item = Item.new(params)
+    @item = Item.new(:name => params[:name], :notes => params[:notes])
+    @item.room = Room.find_by_slug(params[:room])
     if @item.save
       redirect '/items'
     else
@@ -24,23 +25,40 @@ class ItemsController < ApplicationController
 
   get '/items/:id' do
     @item = Item.find_by_id(params[:id])
-    @owner = @item.room.user
-    authorize!(@owner)
-    erb :'/items/show'
+    if @item != nil
+      @owner = @item.room.user
+      authorize!(@owner)
+      erb :'/items/show'
+    else
+      redirect '/items'
+    end
   end
 
   get '/items/:id/edit' do
     @item = Item.find_by_id(params[:id])
-    @owner = @item.room.user
-    authorize!(@owner)
-    erb :'/items/edit'
+    if @item != nil
+      @owner = @item.room.user
+      authorize!(@owner)
+      erb :'/items/edit'
+    else
+      redirect '/items'
+    end
   end
+
+  # get '/items/:id/move' do
+  #   @item = Item.find_by_id(params[:id])
+  #   @owner = @item.room.user
+  #   authorize!(@owner)
+  #   erb :'/items/move'
+  # end
 
   patch '/items/:id' do
     @item = Item.find_by_id(params[:id])
     @owner = @item.room.user
     authorize!(@owner)
-    @item.update(params)
+    @item.update(:name => params[:name], :notes => params[:notes])
+    @item.room = Room.find_by_slug(params[:room])
+    @item.save
     redirect "/items/#{@item.id}"
   end
 

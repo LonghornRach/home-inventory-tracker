@@ -7,6 +7,8 @@
     <input type="text" name="notes" value="<%= @item.notes %>">
     <label for="room">Room</label>
     <% @owner.rooms.each do |room| %>
-        <input type="radio" name="<%= room.name %>" id="<%= room.id %>"<%= 'checked' if @item.room.id == room.id %>>"<%= room.name %>"</input>
+        <input type="radio" name="room" id="<%= room.name %>" value="<%= room.slug %>" <%= 'checked' if room == @item.room %>><%= room.name %></input>
     <% end %>
+    <br>
+    <input type="submit" value="Edit Item">
 </form>
