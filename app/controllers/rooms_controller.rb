@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
     @room = Room.find_by_slug(params[:slug])
     @owner = User.find_by_id(@room.user_id)
     authorize!(@owner)
-    @room.update(params)
+    @room.update(:name => params[:name], :notes => params[:notes])
     #flash - update successful
     redirect "/rooms/#{@room.slug}"
   end
