@@ -1,4 +1,5 @@
 require './config/environment'
+# require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -7,6 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions
     set :session_secret, 'secret'
+    use Rack::Flash, :sweep => true
     # enable :method_override
   end
 
@@ -18,11 +20,11 @@ class ApplicationController < Sinatra::Base
     def authorize!(user)
       if !logged_in?
         redirect '/'
-        #flash you must log in or sign up
+        flash[:message] = "Please log in or sign up first."
       else
         unless current_user == user
           redirect_home(user)
-          #flash you are not authorized to view that page
+          flash[:message] = "You are not authorized to view that page."
         end
       end
     end
@@ -46,7 +48,7 @@ class ApplicationController < Sinatra::Base
     def logout!
       session.clear
       redirect '/'
-      #flash successfully logged out
+      flash[:message] = "Successfully logged out."
     end
   end
 

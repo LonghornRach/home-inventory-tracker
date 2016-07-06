@@ -17,10 +17,11 @@ class RoomsController < ApplicationController
     @room = Room.new(params)
     if @room.save
       current_user.rooms << @room
+      flash[:message] = "Room created successfully."
       redirect '/rooms'
     else
+      flash[:message] = "Invalid entry."
       redirect '/rooms/new'
-      # flash - invalid entry
     end
   end
 
@@ -43,7 +44,7 @@ class RoomsController < ApplicationController
     @owner = User.find_by_id(@room.user_id)
     authorize!(@owner)
     @room.update(:name => params[:name], :notes => params[:notes])
-    #flash - update successful
+    flash[:message] = "Successfully updated room."
     redirect "/rooms/#{@room.slug}"
   end
 
@@ -53,7 +54,7 @@ class RoomsController < ApplicationController
     authorize!(@owner)
     @room.items.delete_all
     @room.delete
-    # flash - delete successful
+    flash[:message] = "Room deleted."
     redirect '/rooms'
   end
 
