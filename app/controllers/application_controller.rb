@@ -1,5 +1,4 @@
 require './config/environment'
-# require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -9,12 +8,18 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, 'secret'
     use Rack::Flash, :sweep => true
+    set :scss, {:style => :compressed, :debug_info => false}
     # enable :method_override
   end
 
   get '/' do
     erb :index
   end
+
+  # get '/css/styles.css' do
+  #   content_type :css
+  #   scss :styles
+  # end
 
   helpers do
     def authorize!(user)
@@ -28,6 +33,12 @@ class ApplicationController < Sinatra::Base
         end
       end
     end
+
+    # def css(*stylesheets)
+    #   stylesheets.map do |stylesheet|
+    #     "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"
+    #   end.join
+    # end
 
     def logged_in?
       !!session[:id]

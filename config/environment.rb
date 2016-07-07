@@ -9,4 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require 'rack-flash'
+require 'sass'
+require 'sass/plugin/rack'
+
 require_all 'app'
