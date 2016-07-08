@@ -1,147 +1,547 @@
-/*
-Syntax error: Incompatible units: 'em' and ''.
-        on line 37 of public/stylesheets/sass/lib/bourbon/functions/_modular-scale.scss
-        from line 6 of public/stylesheets/sass/lib/neat/_neat-helpers.scss
-        from line 7 of public/stylesheets/sass/lib/neat/_neat.scss
-        from line 4 of ./public/stylesheets/sass/styles.scss
+/*** 3rd Party Components ***/
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
 
-Backtrace:
-public/stylesheets/sass/lib/bourbon/functions/_modular-scale.scss:37
-public/stylesheets/sass/lib/neat/_neat-helpers.scss:6
-public/stylesheets/sass/lib/neat/_neat.scss:7
-./public/stylesheets/sass/styles.scss:4
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/value/number.rb:416:in `coercion_factor'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/value/number.rb:349:in `coerce'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:244:in `visit_for'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `map'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:271:in `visit_if'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:248:in `block (3 levels) in perform_sass_fn'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:248:in `each'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:248:in `block (2 levels) in perform_sass_fn'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:247:in `catch'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:247:in `block in perform_sass_fn'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:78:in `perform_arguments'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:244:in `perform_sass_fn'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/funcall.rb:131:in `_perform'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/script/tree/node.rb:50:in `perform'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:438:in `visit_variable'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `map'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `block in with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `map'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `block in with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `map'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `block in with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:88:in `with_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `map'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:151:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/root_node.rb:36:in `css_tree'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/tree/root_node.rb:20:in `render'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/engine.rb:274:in `render'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:484:in `update_stylesheet'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:214:in `block in update_stylesheets'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:208:in `each'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:208:in `update_stylesheets'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin.rb:82:in `update_stylesheets'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin.rb:54:in `check_for_updates'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sass-3.3.14/lib/sass/plugin/rack.rb:51:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/methodoverride.rb:22:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/sinatra-1.4.7/lib/sinatra/base.rb:219:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/lib/shotgun/loader.rb:86:in `proceed_as_child'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/lib/shotgun/loader.rb:31:in `call!'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/lib/shotgun/loader.rb:18:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/lib/shotgun/favicon.rb:12:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/lib/shotgun/static.rb:14:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/urlmap.rb:66:in `block in call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `each'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/builder.rb:153:in `call'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/connection.rb:86:in `block in pre_process'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/connection.rb:84:in `catch'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/connection.rb:84:in `pre_process'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/connection.rb:53:in `process'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/connection.rb:39:in `receive_data'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/eventmachine-1.2.0.1/lib/eventmachine.rb:194:in `run_machine'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/eventmachine-1.2.0.1/lib/eventmachine.rb:194:in `run'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/backends/base.rb:73:in `start'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/thin-1.7.0/lib/thin/server.rb:162:in `start'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/rack-1.6.4/lib/rack/handler/thin.rb:19:in `run'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/gems/shotgun-0.9.1/bin/shotgun:162:in `<top (required)>'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/bin/shotgun:22:in `load'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/bin/shotgun:22:in `<main>'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/bin/ruby_executable_hooks:15:in `eval'
-/home/vagrant/.rvm/gems/ruby-2.3.0@rails4.2/bin/ruby_executable_hooks:15:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Incompatible units: 'em' and ''.\A         on line 37 of public/stylesheets/sass/lib/bourbon/functions/_modular-scale.scss\A         from line 6 of public/stylesheets/sass/lib/neat/_neat-helpers.scss\A         from line 7 of public/stylesheets/sass/lib/neat/_neat.scss\A         from line 4 of ./public/stylesheets/sass/styles.scss"; }
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+template,
+[hidden] {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover {
+  outline-width: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit; }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+img {
+  border-style: none; }
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+optgroup {
+  font-weight: bold; }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  appearance: none;
+  background-color: #1565c0;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap; }
+  button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: #11519a;
+    color: #fff; }
+  button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; }
+    button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
+      background-color: #1565c0; }
+
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+legend {
+  font-weight: 600;
+  margin-bottom: 0.375em;
+  padding: 0; }
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.375em; }
+
+input,
+select {
+  display: block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em; }
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
+select[multiple] {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  transition: border-color 150ms ease;
+  width: 100%; }
+  input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, input:not([type]):hover, textarea:hover,
+  select[multiple]:hover {
+    border-color: #b1b1b1; }
+  input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, input:not([type]):focus, textarea:focus,
+  select[multiple]:focus {
+    border-color: #1565c0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(18, 89, 169, 0.7);
+    outline: none; }
+  input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="email"]:disabled, input[type="month"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="time"]:disabled, input[type="url"]:disabled, input[type="week"]:disabled, input:not([type]):disabled, textarea:disabled,
+  select[multiple]:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed; }
+    input[type="color"]:disabled:hover, input[type="date"]:disabled:hover, input[type="datetime"]:disabled:hover, input[type="datetime-local"]:disabled:hover, input[type="email"]:disabled:hover, input[type="month"]:disabled:hover, input[type="number"]:disabled:hover, input[type="password"]:disabled:hover, input[type="search"]:disabled:hover, input[type="tel"]:disabled:hover, input[type="text"]:disabled:hover, input[type="time"]:disabled:hover, input[type="url"]:disabled:hover, input[type="week"]:disabled:hover, input:not([type]):disabled:hover, textarea:disabled:hover,
+    select[multiple]:disabled:hover {
+      border: 1px solid #ddd; }
+
+textarea {
+  resize: vertical; }
+
+[type="search"] {
+  appearance: none; }
+
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  margin-right: 0.375em; }
+
+[type="file"] {
+  margin-bottom: 0.75em;
+  width: 100%; }
+
+select {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  width: auto; }
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+dl {
+  margin-bottom: 0.75em; }
+  dl dt {
+    font-weight: 600;
+    margin-top: 0.75em; }
+  dl dd {
+    margin: 0; }
+
+table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%; }
+
+th {
+  border-bottom: 1px solid #a6a6a6;
+  font-weight: 600;
+  padding: 0.75em 0;
+  text-align: left; }
+
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.75em 0; }
+
+tr,
+td,
+th {
+  vertical-align: middle; }
+
+body {
+  color: #333;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  line-height: 1.5; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  line-height: 1.2;
+  margin: 0 0 0.75em; }
+
+p {
+  margin: 0 0 0.75em; }
+
+a {
+  color: #1565c0;
+  text-decoration: none;
+  transition: color 150ms ease; }
+  a:active, a:focus, a:hover {
+    color: #104c90; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -13,10 +13,10 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
-gem 'sass', '~> 3.3.0'
+gem 'sass'
 gem 'bitters'
-gem 'bourbon', '~> 4.0.2'
-gem 'neat', '~> 1.7.0'
+gem 'bourbon', '~> 4.2.1'
+gem 'neat', '~> 1.7.2'
 
 group :test do
   gem 'rspec'
