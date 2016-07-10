@@ -7,7 +7,8 @@ class ApplicationController < Sinatra::Base
     set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions
     set :session_secret, 'secret'
-    use Rack::Flash, :sweep => true
+    use Rack::Flash
+    # use Sinatra::Flash
     set :scss, {:style => :compressed, :debug_info => false}
     # enable :method_override
   end
@@ -16,29 +17,18 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  # get '/css/styles.css' do
-  #   content_type :css
-  #   scss :styles
-  # end
-
   helpers do
     def authorize!(user)
       if !logged_in?
         redirect '/'
-        flash[:message] = "Please log in or sign up first."
+        flash[:alert] = "Please log in or sign up first."
       else
         unless current_user == user
+          flash[:error] = "You are not authorized to view that page."
           redirect_home(user)
-          flash[:message] = "You are not authorized to view that page."
         end
       end
     end
-
-    # def css(*stylesheets)
-    #   stylesheets.map do |stylesheet|
-    #     "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"
-    #   end.join
-    # end
 
     def logged_in?
       !!session[:id]
@@ -58,8 +48,8 @@ class ApplicationController < Sinatra::Base
 
     def logout!
       session.clear
+      flash[:alert] = "You have been logged out."
       redirect '/'
-      flash[:message] = "Successfully logged out."
     end
   end
 

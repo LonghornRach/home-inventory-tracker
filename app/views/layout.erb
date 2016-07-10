@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <title>Home Inventory Tracker</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <% if flash.has?(:message) %>
-        <%= flash[:message] %>
+    <% if flash.has?(:success) %>
+      <div class="flash-success">
+        <span><%= flash[:success] %></span>
+      </div>
+    <% elsif flash.has?(:notice) %>
+      <div class="flash-notice">
+        <span><%= flash[:notice] %></span>
+      </div>
+    <% elsif flash.has?(:error) %>
+      <div class="flash-error">
+        <span><%= flash[:error] %></span>
+      </div>
+    <% elsif flash.has?(:alert) %>
+      <div class="flash-alert">
+        <span><%= flash[:alert] %></span>
+      </div>
     <% end %>
+
     <%= yield %>
 </body>
 
 <footer class="footer-2" role="contentinfo">
   <div class="footer-logo">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="Logo image">
+    <img src="/images/128-home.png" alt="House image">
   </div>
     <ul>
       <li><a href="/login">Home</a></li>
@@ -27,18 +44,6 @@
         <li><a href="/logout">Log Out</a></li>
         <li><a href="www.learn.co">Learn.Co</a></li>
       </ul>
-
-      <!-- <ul class="footer-social">
-        <li><a href="javascript:void(0)">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
-          </a></li>
-        <li><a href="javascript:void(0)">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
-        </a></li>
-        <li><a href="javascript:void(0)">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/youtube-logo-circle.png" alt="YouTube">
-        </a></li>
-      </ul> -->
     </div>
 </footer>
 

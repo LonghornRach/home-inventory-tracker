@@ -1,15 +1,19 @@
+<article class="type-system-geometric">
 <h1><%= @item.name %></h1>
+<hr>
 <br>
 <h2>Notes:</h2>
-<p><%= @item.notes %></p>
+<h3><%= @item.notes %></h3>
 <br>
-<h2>Location: <%= @item.room.name %></h2>
-<br><br>
-<h3><a href="/items/<%= @item.id %>/edit">Edit Item Details</a></h3>
+<h2>Location: <%= @item.room.name.capitalize %></h2>
 <br>
-<!-- <h3><a href="/items/<%= @item.id %>/move">Edit Item Location</a></h3>
-<br> -->
+<hr>
+<a href="/items/<%= @item.id %>/edit"><button type="button">Edit Item Details</button></a>
+<br>
+<br>
 <form action="/items/<%= @item.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Item">
 </form>
+<br><br>
+</article>

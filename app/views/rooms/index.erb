@@ -1,7 +1,12 @@
+<article class="type-system-geometric">
 <h1>Your Rooms</h1>
+<hr>
 <ol>
     <% @rooms.each do |room| %>
-        <li><a href="/rooms/<%= room.slug %>"><%= room.name %></a></li>
+        <li><h2><a href="/rooms/<%= room.slug %>"><%= room.name.capitalize %></a></h2></li>
     <% end %>
 </ol>
-<h2><a href="/rooms/new">Create New Room</a></h2>
+<hr>
+<a href="/rooms/new"><button type="button">Create New Room</button></a>
+<br><br>
+</article>

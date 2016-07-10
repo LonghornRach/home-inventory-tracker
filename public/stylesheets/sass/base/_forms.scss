@@ -1,3 +1,17 @@
+$dark-red: #921010;
+$base-border-radius: 3px !default;
+$base-line-height: 1.5em !default;
+$base-spacing: 1.5em !default;
+$action-color: #477DCA !default;
+$dark-gray: #333 !default;
+$light-gray: #DDD !default;
+$medium-screen: 40em !default;
+$base-font-color: $dark-gray !default;
+$sans-serif: 'Questrial', sans-serif;
+$serif: 'Sanchez', serif;
+$button-font-size: 1em;
+$base-font-size: 1em;
+
 fieldset {
   background-color: transparent;
   border: 0;
@@ -12,15 +26,21 @@ legend {
 }
 
 label {
+  font-family: $serif;
   display: block;
-  font-weight: 600;
+  // font-weight: 600;
+  font-weight: 500;
+  font-size: 1.4em;
+  font-style: italic;
+  line-height: 1.4em;
   margin-bottom: $small-spacing / 2;
 }
 
 input,
 select {
   display: block;
-  font-family: $base-font-family;
+  // font-family: $base-font-family;
+  font-family: $sans-serif;
   font-size: $base-font-size;
 }
 
@@ -31,12 +51,15 @@ select[multiple] {
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
-  font-family: $base-font-family;
+  // font-family: $base-font-family;
+  font-family: $sans-serif;
   font-size: $base-font-size;
   margin-bottom: $small-spacing;
   padding: $base-spacing / 3;
   transition: border-color $base-duration $base-timing;
-  width: 100%;
+  // width: 100%;
+  width: auto;
+  margin-left: 1em;
 
   &:hover {
     border-color: shade($base-border-color, 20%);
@@ -69,7 +92,9 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
   display: inline;
+  font-family: $serif;
   margin-right: $small-spacing / 2;
+  margin-left: 1em;
 }
 
 [type="file"] {

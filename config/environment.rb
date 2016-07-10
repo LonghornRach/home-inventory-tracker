@@ -9,6 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require 'rack-flash'
+# require 'sinatra/flash'
 require 'sass'
 require 'sass/plugin/rack'
 

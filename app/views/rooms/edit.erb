@@ -1,16 +1,21 @@
+<article class="type-system-geometric">
 <h1>Edit Room</h1>
+<hr>
 <form action="/rooms/<%= @room.slug %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <label for="name">Name</label>
     <input type="text" name="name" value="<%= @room.name %>">
+    <br>
     <label for="notes">Notes</label>
     <input type="text" name="notes" value="<%= @room.notes %>">
+    <br>
     <input type="submit" value="Edit Room">
 </form>
 <br>
-<br>
-<p>Warning: Deleting the room will also delete all of it's items.</p>
+<p>Warning: Deleting the room will also delete all of its items.</p>
 <form action="/rooms/<%= @room.slug %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Room">
 </form>
+<br><br>
+</article>

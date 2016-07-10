@@ -1,13 +1,17 @@
+<article class="type-system-geometric">
 <h1>All Items</h1>
+<hr>
 <ul>
     <% @rooms.each do |room| %>
-        <li><a href="/rooms/<%= room.slug %>"><%= room.name %></a></li>
+        <li><h2><a href="/rooms/<%= room.slug %>"><%= room.name.capitalize %></a></h2></li>
         <ul>
             <% room.items.each do |item| %>
-                <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+                <li><h3><a href="/items/<%= item.id %>"><%= item.name.capitalize %></a></h3></li>
             <% end %>
         </ul>
     <% end %>
 </ul>
+<hr>
+<a href="items/new"><button type="button">Create New Item</button></a>
 <br><br>
-<h2><a href="items/new">Create New Item</a></h2>
+</article>
