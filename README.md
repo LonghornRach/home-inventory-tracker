@@ -9,4 +9,4 @@ To install, clone the repository, run `bundle install` and `rake db:migrate`. Th
 
 ## License
 
-The Home Inventory Tracker is a free app made for educational purposes, and may be redistributed under the terms specified in the [license](LICENSE.md).
+The Home Inventory Tracker is a free app made for educational purposes, and may be redistributed under the terms specified in the [license](home-inventory-tracker/LICENSE).
